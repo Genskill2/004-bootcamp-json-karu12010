@@ -7,7 +7,8 @@ def load_journal(fname):
     js=json.loads(data)
     return js
 
-def compute_phi(js,event):
+def compute_phi(fname,event):
+    js=load_journal(fname)
     a=0
     b=0
     c=0

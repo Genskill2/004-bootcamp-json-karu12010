@@ -51,7 +51,7 @@ def compute_correlations(fname):
               eventlist.append(i)
     corr_pair=dict()
     for event in eventlist:
-        x=compute_phi(js,event)
+        x=compute_phi(fname,event)
         corr_pair[x]=event
     return corr_pair
 

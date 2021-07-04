@@ -1,6 +1,7 @@
 # Add the functions in this file
 import json
 import math
+import operator
 
 def load_journal(fname):
     data=open(fname).read()
@@ -49,21 +50,25 @@ def compute_correlations(fname):
       for i in item['events']:
           if i not in eventlist:
               eventlist.append(i)
+    
     corr_pair=dict()
     for event in eventlist:
         x=compute_phi(fname,event)
-        corr_pair[x]=event
+        corr_pair[event]=x
     return corr_pair
 
 
 def diagnose(fname):
     d=compute_correlations(fname)
-    x=sorted(d.items())
+    
+    x=sorted(d.items(), key=operator.itemgetter(1))
     for k,v in x:
-        e1=v
+        e1=k
         break
-    x=sorted(d.items(),reverse=True)
+    x=sorted(d.items(), key=operator.itemgetter(1),reverse=True)
     for k,v in x:
-        e2=v
+        e2=k
         break
     return e2,e1
+
+

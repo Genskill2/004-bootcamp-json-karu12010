@@ -17,7 +17,9 @@ def compute_phi(js,event):
     y=0
     z=0
     for item in js:
-        list=item['events']
+        list=list()
+        for i in item['events']:
+            list.append(i)
         bool=item['squirrel']
         if event in list and bool==True:
             a=a+1

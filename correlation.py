@@ -1,8 +1,10 @@
 # Add the functions in this file
+import json
+import math
 
 def load_journal(fname):
     data=open(fname).read()
-    js = json.loads(data)
+    js=json.loads(data)
     return js
 
 def compute_phi(js,event):

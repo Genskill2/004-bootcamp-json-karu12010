@@ -45,10 +45,9 @@ def compute_correlations(fname):
     js=load_journal(fname)
     eventlist=[]
     for item in js:
-      list=item['events']
-      for ev in list:
-          if ev not in eventlist:
-              eventlist.append(ev)
+      for i in item['events']:
+          if i not in eventlist:
+              eventlist.append(i)
     corr_pair=dict()
     for event in eventlist:
         x=compute_phi(js,event)
